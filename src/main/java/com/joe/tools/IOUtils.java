@@ -1,16 +1,13 @@
 package com.joe.tools;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.http.HttpEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.joe.main.task.QRIdTask;
 
 public class IOUtils {
 	private static final Logger logger = LoggerFactory.getLogger(IOUtils.class);

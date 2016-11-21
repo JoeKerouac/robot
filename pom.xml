@@ -6,6 +6,7 @@
 	<version>1.0</version>
 	<name>wechat robot</name>
 	<description>微信机器人</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<httpcomponents.version>4.5.2</httpcomponents.version>
@@ -81,24 +82,4 @@
 			<version>1.2</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>com.joe.main.service.CoreService</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>

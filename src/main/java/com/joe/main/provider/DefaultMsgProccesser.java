@@ -15,7 +15,5 @@ public class DefaultMsgProccesser implements MsgProccesser{
 		if(msgType == 10002){
 			LoggerService.info("撤销消息是：{}" , wxMsgBody);
 		}
-		System.out.println("all msgType is " + msgType);
 	}
-
 }

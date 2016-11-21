@@ -41,11 +41,20 @@ public class CoreService {
 	/**
 	 * 
 	 * @throws LoginTimeOutError
+	 * @throws UnsupportedEncodingException
 	 */
 	public void run() throws LoginTimeOutError {
 		// 获取二维码
 		String path = "D://";
 		String name = "qrcode.jpg";
+		System.out.println("\n\n---------------------------------------");
+		System.out.println("您的机器人正在启动，请打开" + path + "准备扫描二维码登录;\n具体操作：打开上边的路径，然后打开手机微信扫一扫，准备扫描二维码，二维码将在5S后生成");
+		System.out.println("---------------------------------------\n\n");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		WechatSession wechatSession = new WechatSession(path, name, String.valueOf(System.currentTimeMillis()));
 		LoggerService.info("二维码保存路径：{}；二维码名称：{}", path, name);
 		System.out.println(String.format("二维码保存路径：%s；二维码名称：%s", path, name));
@@ -103,10 +112,18 @@ public class CoreService {
 				throw new InitError(task.getTaskName());
 			}
 			LoggerService.info("{} 成功", task.getTaskName());
+			if(task instanceof QRTask){
+				System.out.println("\n\n--------------------------------------------------------");
+				System.out.println("请打开上边指定名称的二维码，使用手机微信扫一扫登录您的微信机器人");
+				System.out.println("--------------------------------------------------------\n\n");
+			}
 		}
 		// 开始监听
 		RetryTask listen = tasks.get(tasks.size() - 1);
 		LoggerService.info("开始监听消息................");
+		System.out.println("\n\n--------------------------------------------------------");
+		System.out.println("oh 您的机器人上线了，赶紧召集好友来玩耍吧~~");
+		System.out.println("--------------------------------------------------------\n\n");
 		while (!listen.isComplete()) {
 			RetryService.retryIgnoreException(10, listen, wechatSession);
 		}
