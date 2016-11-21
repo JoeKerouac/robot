@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.joe.http.HttpClientUtils;
+import com.joe.main.service.TalkService;
 import com.joe.tools.JsonParser;
 
 /**
@@ -14,7 +15,7 @@ import com.joe.tools.JsonParser;
  *
  */
 @Service
-public class TlMsgService {
+public class TlMsgService implements TalkService{
 	private static final Logger logger = LoggerFactory.getLogger(TlMsgService.class);
 	@Autowired
 	private HttpClientUtils httpClientUtils;

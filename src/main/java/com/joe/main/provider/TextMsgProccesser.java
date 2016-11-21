@@ -1,5 +1,7 @@
 package com.joe.main.provider;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +9,7 @@ import com.joe.ext.TlMsgService;
 import com.joe.main.entity.WxMsgBody;
 import com.joe.main.service.LoggerService;
 import com.joe.main.service.MsgService;
+import com.joe.main.service.TalkService;
 import com.joe.main.session.WechatSession;
 
 
@@ -17,8 +20,8 @@ import com.joe.main.session.WechatSession;
  */
 @Component
 public class TextMsgProccesser implements MsgProccesser {
-	@Autowired
-	private TlMsgService tlMsgService;
+	@Resource(type=TlMsgService.class)
+	private TalkService tlMsgService;
 	@Autowired
 	private MsgService msgService;
 	public boolean isReadable(WxMsgBody wxMsgBody) {
