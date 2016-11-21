@@ -1,0 +1,1 @@
+登录有可能失败，同步消息时返回：window.synccheck={retcode:"1101",selector:"0"}，未知原因，表示登录失败
