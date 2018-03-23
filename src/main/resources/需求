@@ -1,0 +1,178 @@
+登录监听，当登录二维码状态改变时需要回调
+
+消息监听，有消息时需要回调
+
+提供登陆方法
+
+创建客户端（传入消息监听、二维码状态监听）->
+    ->获取二维码
+        ->开始
+
+当对方把自己删除后自己发送消息仍然会成功，但是会收到一个系统通知：
+{
+    "BaseResponse": {
+        "Ret": 0,
+        "ErrMsg": ""
+    },
+    "AddMsgCount": 1,
+    "AddMsgList": [
+        {
+            "MsgId": "257606378212129104",
+            "FromUserName": "@f3ac4874ffb6d91daded66e0bb454c543b604b3e1ede521ad2e3ad48ef6487e1",//该ID是对方的微信ID
+            "ToUserName": "@5c6d387979a713f97ff5e704c2e5e3f842eca768936bd2f12fbbd26105817da0",
+            "MsgType": 10000,
+            "Content": "joe开启了朋友验证，你还不是他（她）朋友。请先发送朋友验证请求，对方验证通过后，才能聊天。&lt;a href=\"weixin://findfriend/verifycontact\"&gt;发送朋友验证&lt;/a&gt;",
+            "Status": 4,
+            "ImgStatus": 1,
+            "CreateTime": 1506767564,
+            "VoiceLength": 0,
+            "PlayLength": 0,
+            "FileName": "",
+            "FileSize": "",
+            "MediaId": "",
+            "Url": "",
+            "AppMsgType": 0,
+            "StatusNotifyCode": 0,
+            "StatusNotifyUserName": "",
+            "RecommendInfo": {
+                "UserName": "",
+                "NickName": "",
+                "QQNum": 0,
+                "Province": "",
+                "City": "",
+                "Content": "",
+                "Signature": "",
+                "Alias": "",
+                "Scene": 0,
+                "VerifyFlag": 0,
+                "AttrStatus": 0,
+                "Sex": 0,
+                "Ticket": "",
+                "OpCode": 0
+            },
+            "ForwardFlag": 0,
+            "AppInfo": {
+                "AppID": "",
+                "Type": 0
+            },
+            "HasProductId": 0,
+            "Ticket": "",
+            "ImgHeight": 0,
+            "ImgWidth": 0,
+            "SubMsgType": 0,
+            "NewMsgId": 257606378212129100,
+            "OriContent": ""
+        }
+    ],
+    "ModContactCount": 0,
+    "ModContactList": [],
+    "DelContactCount": 0,
+    "DelContactList": [],
+    "ModChatRoomMemberCount": 0,
+    "ModChatRoomMemberList": [],
+    "Profile": {
+        "BitFlag": 0,
+        "UserName": {
+            "Buff": ""
+        },
+        "NickName": {
+            "Buff": ""
+        },
+        "BindUin": 0,
+        "BindEmail": {
+            "Buff": ""
+        },
+        "BindMobile": {
+            "Buff": ""
+        },
+        "Status": 0,
+        "Sex": 0,
+        "PersonalCard": 0,
+        "Alias": "",
+        "HeadImgUpdateFlag": 0,
+        "HeadImgUrl": "",
+        "Signature": ""
+    },
+    "ContinueFlag": 0,
+    "SyncKey": {
+        "Count": 8,
+        "List": [
+            {
+                "Key": 1,
+                "Val": 656673987
+            },
+            {
+                "Key": 2,
+                "Val": 656674236
+            },
+            {
+                "Key": 3,
+                "Val": 656674229
+            },
+            {
+                "Key": 11,
+                "Val": 656673318
+            },
+            {
+                "Key": 13,
+                "Val": 656620008
+            },
+            {
+                "Key": 201,
+                "Val": 1506767564
+            },
+            {
+                "Key": 1000,
+                "Val": 1506767458
+            },
+            {
+                "Key": 1001,
+                "Val": 1506766093
+            }
+        ]
+    },
+    "SKey": "",
+    "SyncCheckKey": {
+        "Count": 8,
+        "List": [
+            {
+                "Key": 1,
+                "Val": 656673987
+            },
+            {
+                "Key": 2,
+                "Val": 656674236
+            },
+            {
+                "Key": 3,
+                "Val": 656674229
+            },
+            {
+                "Key": 11,
+                "Val": 656673318
+            },
+            {
+                "Key": 13,
+                "Val": 656620008
+            },
+            {
+                "Key": 201,
+                "Val": 1506767564
+            },
+            {
+                "Key": 1000,
+                "Val": 1506767458
+            },
+            {
+                "Key": 1001,
+                "Val": 1506766093
+            }
+        ]
+    }
+}
+
+
+
+
+分析当手机删除一个好友后网页端是如何同步的
+
