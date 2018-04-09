@@ -48,7 +48,7 @@ public class Test {
                     wxRobot.sendMsg(msg.getFrom(), "进入机器人聊天模式，发送[exit]退出");
                     return;
                 } else if ("菜单".equals(msg.getContent())) {
-                    wxRobot.sendMsg(msg.getFrom(), "发送[机器人聊天]进入机器人聊天模式，发送[exit]退出");
+                    wxRobot.sendMsg(msg.getFrom(), "发送[机器人]进入机器人聊天模式，发送[exit]退出");
                     return;
                 } else if ("exit".equals(msg.getContent())) {
                     robotStart.put(msg.getFrom(), false);

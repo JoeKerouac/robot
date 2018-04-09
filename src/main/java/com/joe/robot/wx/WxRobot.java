@@ -34,11 +34,11 @@ public class WxRobot extends Robot {
     private static final XmlParser xmlParser = XmlParser.getInstance();
     private static final JsonParser parser = JsonParser.getInstance();
     //登录成功正则
-    private static final Pattern LOGINPATTERN = Pattern.compile("window\\.code\\=200;\nwindow.redirect_uri=\"(.*)\";");
+    private static final Pattern LOGINPATTERN = Pattern.compile("window\\.code=200;\nwindow.redirect_uri=\"(.*)\";");
     //等待用户确认正则
-    private static final Pattern LOGINWAITPATTERN = Pattern.compile("window\\.code\\=201.*");
+    private static final Pattern LOGINWAITPATTERN = Pattern.compile("window\\.code=201.*");
     //获取消息正则
-    Pattern MSGPATTERN = Pattern.compile("window\\.synccheck\\=\\{retcode:\"([0-9]+)\",selector:\"([0-9])\"\\}");
+    Pattern MSGPATTERN = Pattern.compile("window\\.synccheck=\\{retcode:\"([0-9]+)\",selector:\"([0-9])\"}");
     //当前的登录状态（最后一次变更的登录状态）
     private volatile LoginEvent last;
     //微信配置
