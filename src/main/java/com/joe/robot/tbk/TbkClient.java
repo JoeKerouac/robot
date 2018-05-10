@@ -112,29 +112,30 @@ public class TbkClient extends Robot {
                         String checkQrResultStr = clientUtil.executeGet(checkQr);
                         logger.debug("二维码状态为：{}", checkQrResultStr);
                         checkQrResult = parser.readAsObject(checkQrResultStr, CheckQrResult.class);
-                        if (checkQrResult.getCode().equals("10000")) {
-                            //未扫描二维码，并且二维码未过期
-                            logger.debug("请扫描二维码");
-                            updateStatus(LoginEvent.CREATE);
-                            continue;
-                        } else if (checkQrResult.getCode().equals("10001")) {
-                            logger.debug("请在手机上确认");
-                            updateStatus(LoginEvent.WAIT);
-                            continue;
-                        } else if (checkQrResult.getCode().equals("10004")) {
-                            logger.warn("二维码已经失效，请重新获取");
-                            updateStatus(LoginEvent.TIMEOUT);
-                            return;
-                        } else if (checkQrResult.getCode().equals("10006")) {
-                            logger.debug("登录成功");
-                            updateStatus(LoginEvent.SUCCESS);
-                            //刷新cookie
-                            String url = checkQrResult.getUrl();
-                            logger.debug("刷新cookie2");
-                            String refreshResult = clientUtil.executeGet(url);
-                            logger.debug("cookie刷新结果是：{}", refreshResult);
-                            updateStatus(LoginEvent.LOGIN);
-                            return;
+                        switch (checkQrResult.getCode()) {
+                            case "10000":
+                                //未扫描二维码，并且二维码未过期
+                                logger.debug("请扫描二维码");
+                                updateStatus(LoginEvent.CREATE);
+                                continue;
+                            case "10001":
+                                logger.debug("请在手机上确认");
+                                updateStatus(LoginEvent.WAIT);
+                                continue;
+                            case "10004":
+                                logger.warn("二维码已经失效，请重新获取");
+                                updateStatus(LoginEvent.TIMEOUT);
+                                return;
+                            case "10006":
+                                logger.debug("登录成功");
+                                updateStatus(LoginEvent.SUCCESS);
+                                //刷新cookie
+                                String url = checkQrResult.getUrl();
+                                logger.debug("刷新cookie2");
+                                String refreshResult = clientUtil.executeGet(url);
+                                logger.debug("cookie刷新结果是：{}", refreshResult);
+                                updateStatus(LoginEvent.LOGIN);
+                                return;
                         }
                     }
                 } catch (Exception e) {

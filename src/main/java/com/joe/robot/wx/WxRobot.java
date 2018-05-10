@@ -135,9 +135,7 @@ public class WxRobot extends Robot {
                     init = initUserInfo(5);
                     openNotify();
                     //开始消息监听，必须一个用户一个线程，因为该线程是堵塞的线程
-                    new Thread(() -> {
-                        listenMsg();
-                    }, init.getUser().getNickName() + "的消息监听线程").start();
+                    new Thread(this::listenMsg, init.getUser().getNickName() + "的消息监听线程").start();
                     break;
                 } else if (matcher2.find()) {
                     //等待300毫秒继续
@@ -268,16 +266,22 @@ public class WxRobot extends Robot {
                         String selector = matcher.group(2);
                         // 无论是什么图片消息还是文字还是其他，selector都应该是2
                         //暂时不知道4是什么，6是添加好友后推送的消息，7是notify消息
-                        if (selector.equals("2") || selector.equals("4") || selector.equals("6") || selector.equals
-                                ("7")) {
-                            // 表明有新消息
-                            logger.info("有新消息了，开始处理新消息");
-                            //处理新消息
-                            proccess();
-                        } else if (selector.equals("0")) {
-                            logger.debug("本次没有新消息");
-                        } else {
-                            logger.error("selector 是 ：{}，没有这种selector", selector);
+                        switch (selector) {
+                            case "2":
+                            case "4":
+                            case "6":
+                            case "7":
+                                // 表明有新消息
+                                logger.info("有新消息了，开始处理新消息");
+                                //处理新消息
+                                proccess();
+                                break;
+                            case "0":
+                                logger.debug("本次没有新消息");
+                                break;
+                            default:
+                                logger.error("selector 是 ：{}，没有这种selector", selector);
+                                break;
                         }
                     } else if ("1101".equals(retcode)) {
                         //只有等于0时才是成功，某些时候登录后获取消息会返回1101，表示登录失败，此时要退出登录

@@ -38,11 +38,7 @@ public class Test {
             public void friendMsg(Msg msg, Robot wxRobot) {
                 System.out.println("好友消息是：" + msg);
                 msgHistory.put(msg.getMsgid(), msg);
-                Boolean start = robotStart.get(msg.getFrom());
-                if (start == null) {
-                    start = false;
-                    robotStart.put(msg.getFrom(), start);
-                }
+                Boolean start = robotStart.computeIfAbsent(msg.getFrom(), k -> false);
                 if ("机器人".equals(msg.getContent())) {
                     robotStart.put(msg.getFrom(), true);
                     wxRobot.sendMsg(msg.getFrom(), "进入机器人聊天模式，发送[exit]退出");
