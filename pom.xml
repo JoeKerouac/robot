@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.joe</groupId>
+    <groupId>com.github.JoeKerouac</groupId>
     <artifactId>robot</artifactId>
     <version>1.0</version>
     <name>robot</name>
@@ -13,20 +13,20 @@
         <slf4j.version>1.7.21</slf4j.version>
         <lombok.version>1.16.18</lombok.version>
         <net.version>1.5</net.version>
-        <utils.version>1.7</utils.version>
+        <utils.version>1.8.003</utils.version>
         <logback.version>1.1.7</logback.version>
     </properties>
 
     <dependencies>
         <!--网络请求包-->
         <dependency>
-            <groupId>com.github.935237604</groupId>
+            <groupId>com.github.JoeKerouac</groupId>
             <artifactId>net</artifactId>
             <version>${net.version}</version>
         </dependency>
         <!--常用工具包-->
         <dependency>
-            <groupId>com.github.935237604</groupId>
+            <groupId>com.github.JoeKerouac</groupId>
             <artifactId>utils</artifactId>
             <version>${utils.version}</version>
         </dependency>
