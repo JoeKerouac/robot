@@ -8,49 +8,55 @@
     <description>机器人（目前暂时只有微信机器人）</description>
     <packaging>jar</packaging>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <slf4j.version>1.7.21</slf4j.version>
-        <lombok.version>1.16.18</lombok.version>
-        <net.version>1.5</net.version>
-        <utils.version>1.8.003</utils.version>
-        <logback.version>1.1.7</logback.version>
-    </properties>
+    <parent>
+        <groupId>com.github.JoeKerouac</groupId>
+        <artifactId>java-parent</artifactId>
+        <version>1.1.0</version>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git@github.com:JoeKerouac/robot.git</connection>
+        <developerConnection>scm:git@github.com:JoeKerouac/robot.git</developerConnection>
+        <url>https://github.com/JoeKerouac/robot</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>JoeKerouac</name>
+            <email>1213812243@qq.com</email>
+        </developer>
+    </developers>
 
     <dependencies>
         <!--网络请求包-->
         <dependency>
             <groupId>com.github.JoeKerouac</groupId>
             <artifactId>net</artifactId>
-            <version>${net.version}</version>
         </dependency>
         <!--常用工具包-->
         <dependency>
             <groupId>com.github.JoeKerouac</groupId>
             <artifactId>utils</artifactId>
-            <version>${utils.version}</version>
         </dependency>
         <!--日志包-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <!--快速生成get set方法-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
@@ -59,11 +65,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <encoding>UTF-8</encoding>
+                    <encoding>${encode}</encoding>
                 </configuration>
             </plugin>
         </plugins>
