@@ -9,7 +9,7 @@ import com.joe.robot.ext.MsgListener;
 import com.joe.robot.ext.QrCallback;
 import com.joe.utils.concurrent.ThreadUtil;
 import com.joe.utils.img.IQRCode;
-import com.joe.utils.parse.json.JsonParser;
+import com.joe.utils.serialize.json.JsonParser;
 import lombok.Data;
 
 import java.net.URL;

@@ -11,8 +11,8 @@ import com.joe.robot.ext.QrCallback;
 import com.joe.robot.wx.dto.*;
 import com.joe.robot.wx.service.URLService;
 import com.joe.utils.img.IQRCode;
-import com.joe.utils.parse.json.JsonParser;
-import com.joe.utils.parse.xml.XmlParser;
+import com.joe.utils.serialize.json.JsonParser;
+import com.joe.utils.serialize.xml.XmlParser;
 
 import java.io.IOException;
 import java.net.URL;

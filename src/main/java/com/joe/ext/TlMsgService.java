@@ -1,7 +1,7 @@
 package com.joe.ext;
 
 import com.joe.http.IHttpClientUtil;
-import com.joe.utils.parse.json.JsonParser;
+import com.joe.utils.serialize.json.JsonParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

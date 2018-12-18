@@ -1,6 +1,6 @@
 package com.joe.robot.wx.dto;
 
-import com.joe.utils.parse.xml.XmlIgnoreProperties;
+import com.joe.utils.serialize.xml.XmlIgnoreProperties;
 import lombok.Data;
 
 @Data
